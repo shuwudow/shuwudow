@@ -1,1 +1,32 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+#include <map>
+#include <iterator>
 
+int main()
+{
+/* 
+1. Shop has a balance.
+2. Shop has to have atleast 5 products. It has to be listed in an array.
+3. Shop remembers what you choose.
+4. After every item you choose, it asks if you want to checkout.
+5. it checks if u have enough money to buy stuff.
+6. If you have enough, The items that you choose is saved in your array.
+*/
+    int balance;
+    std::cout << "Write your balance in cents: ";
+    std::cin >> balance;
+    int trashbalance = balance/100;
+    double shitf = balance - trashbalance * 100;
+    double probalance = trashbalance + shitf/100; 
+    std::map<std::string,double> items={{"pencil", 1.99}, {"ruler", 3.99}, {"parker", 2.99}, {"scissors", 4.99}, {"book", 6.99}};
+
+    std::string whatItem;
+    std::cout << "Write which item you want to buy: pencil, ruler, parker, scissors, book?" << std::endl;
+    std::cin >> whatItem;
+    double leftovers = probalance - items[whatItem];
+    std::cout << "Congratulations on buying " << whatItem << " it cost you " << items[whatItem] << "euros, now you have " << leftovers << " euros in your balance.";
+
+    return 0;
+}
